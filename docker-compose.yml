@@ -1,0 +1,25 @@
+version: "3"
+services:
+  app1:
+    container_name: api01
+    image: nmatsui/hello-world-api
+    ports:
+      - "3000:3000"
+    environment:
+      - MESSAGE=Piero Cardenas Julian copia 1
+
+  app2:
+    container_name: api02
+    image: nmatsui/hello-world-api
+    ports:
+      - "3001:3000"
+    environment:
+      - MESSAGE=Piero Cardenas Julian copia 2
+
+  app3:
+    container_name: api03
+    image: nmatsui/hello-world-api
+    ports:
+      - "3002:3000"
+    environment:
+      - MESSAGE=Piero Cardenas Julian copia 3
