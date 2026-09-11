@@ -11,7 +11,11 @@ API
 - - docker run -d --rm -p 3002:3000 nmatsui/hello-world-api. 907bc961e055 - determined_jeps
 BD
 - PostgreSQL
-- $ docker run --name Lab_2 -e POSTGRES_PASSWORD=123 -d postgres
+- $ docker run --name Lab_2 -e POSTGRES_PASSWORD=123 -d postgres  
+- Volumenes
+- db_data:/var/lib/postgresql/data
+- db_data - nombre de volumen 
+- /var/lib/postgresql/data - ruta dentro del contenedor de Postgres
 # Indicaciones
 ## Comandos
 ```bash
