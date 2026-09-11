@@ -23,8 +23,9 @@ docker compose up -d
 ```
 ## Configuración por entorno
 ```
-MESSAGE=<Piero Cardenas>
+MESSAGE=<Piero Cardenas Julian>
 ```
+![Contenedores corriendo y las 3 copias](./img/image.png)
 # Creditos
 - Cardenas Julian Juan Piero 
 - ID: 000115468
