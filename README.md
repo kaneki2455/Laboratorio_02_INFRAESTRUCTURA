@@ -17,12 +17,12 @@ BD
 - db_data - nombre de volumen 
 - /var/lib/postgresql/data - ruta dentro del contenedor de Postgres
 # Tipos de Redes  en Docker
-- Bridge (default): red virtual aislada en el host. Los contenedores dentro de la misma bridge se comunican entre sí libremente, y hacia el exterior salen mediante NAT. Es la que se usa cuando no especificas nada al levantar un contenedor.
-- Host: el contenedor comparte directamente la pila de red del host, sin aislamiento. No hay NAT ni mapeo de puertos: usa los puertos del host tal cual. Es más rápido en rendimiento de red, pero se pierde el aislamiento.
-None: el contenedor no tiene ninguna interfaz de red real, solo loopback. Se usa cuando quieres aislar totalmente un contenedor o manejar la conectividad tú mismo con herramientas externas.
-- Overlay: crea una red distribuida que conecta contenedores corriendo en distintos hosts físicos, típico en clústeres de Docker Swarm.
-- Macvlan: le asigna a cada contenedor una IP propia dentro de la red física, como si fuera un dispositivo más de la LAN. Útil cuando el contenedor necesita ser visible directamente en la red, sin pasar por NAT.
-- IPvlan: similar al macvlan, pero todos los contenedores comparten la misma MAC address del host y solo varía la IP. Da más control sobre el esquema de direccionamiento.
+- BBridge: red por defecto, los contenedores se hablan entre sí y salen a internet por NAT.
+- Host: usa la red del host directamente, sin aislamiento.
+- None: sin red, solo el contenedor consigo mismo.
+- Overlay: conecta contenedores en distintas máquinas (Swarm).
+- Macvlan: cada contenedor parece un dispositivo físico más en la red, con su propia IP.
+- IPvlan: como macvlan, pero comparten la MAC del host.
 # Tipo de Volumenes en Docker
 - Volumes: gestionados completamente por Docker, se almacenan en /var/lib/docker/volumes/ dentro del host. Es la forma recomendada de persistir datos porque Docker maneja backups, migración y permisos, y funciona bien tanto en Linux como en Windows.
 - Bind mounts: montan una carpeta o archivo específico del host, usando su ruta exacta, directamente dentro del contenedor. Dan mayor control sobre la ubicación de los datos, pero dependen de la estructura del sistema host, por lo que son menos portables entre entornos.
@@ -31,6 +31,12 @@ None: el contenedor no tiene ninguna interfaz de red real, solo loopback. Se usa
 # Indicaciones
 ## Comandos
 ```bash
+docker run                   
+docker run -d              
+docker run -p 3000:3000           
+docker run -e VAR=valor             
+docker run --name mi-contenedor     
+docker run --rm                     
 docker compose up -d
 ```
 ## Configuración por entorno
