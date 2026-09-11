@@ -23,3 +23,13 @@ services:
       - "3002:3000"
     environment:
       - MESSAGE=Piero Cardenas Julian copia 3
+
+  db:
+    image: postgres
+    container_name: Lab_2
+    environment:
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=laboratorio02
+      - POSTGRES_USER=piero
+    volumes:
+      - db_data:/var/lib/postgresql/data
